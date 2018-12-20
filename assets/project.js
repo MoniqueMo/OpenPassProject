@@ -30,27 +30,27 @@ $(document).ready(function() {
     
     //firebase
     function userScript(value) {
-    var config = {
-        apiKey: "AIzaSyCiDAuplJVOiq3cm4zAcvU3RN9IE3_Ug9g",
-        authDomain: "openpass-signup.firebaseapp.com",
-        databaseURL: "https://openpass-signup.firebaseio.com",
-        projectId: "openpass-signup",
-        storageBucket: "",
-        messagingSenderId: "15860742932"
-    };
-    firebase.initializeApp(config);
-    var b = firebase.database().ref("messages");
-    $("#newUser").submit(function(config) {
-        $(this), console.log("Submit to Firebase");
-        var c = $("#name").val(),
-        d = $("#email").val(),
-        f = { name: c, email: d };
-        return (
-        b.push(f).then(function(config) {
-            $(".sucess").css("display", "block"),
-            $(".sucess-none").css("display", "none");
-        }),
-        !1
-        );
-    });
-}
+        var config = {
+            apiKey: "AIzaSyCiDAuplJVOiq3cm4zAcvU3RN9IE3_Ug9g",
+            authDomain: "openpass-signup.firebaseapp.com",
+            databaseURL: "https://openpass-signup.firebaseio.com",
+            projectId: "openpass-signup",
+            storageBucket: "",
+            messagingSenderId: "15860742932"
+        };
+        firebase.initializeApp(config);
+        var userArray = firebase.database().ref("messages");
+        $("#newUser").submit(function(config) {
+            $(this), console.log("Submit to Firebase");
+            var name = $("#name").val(),
+            email = $("#email").val(),
+            user = { name: name, email: email };
+            return (
+            userArray.push(user).then(function(config) {
+                $(".sucess").css("display", "block"),
+                $(".sucess-none").css("display", "none");
+            }),
+            !1
+            );
+        });
+    }
