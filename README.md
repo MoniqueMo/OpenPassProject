@@ -1,1 +1,1 @@
-# OpenPassProject
+# GroupProject
