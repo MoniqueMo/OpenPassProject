@@ -35,48 +35,61 @@
                       </div>
                     </li>
                   </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" 
-                        type="text"
-                        value=""
-                        name="FNAME"
-                        class="required name"
-                        id="name"
-                        placeholder="Name:"
-                        style=" width: 35%; float: left; background: none; padding: 1.75em 2em; margin: 0; border-radius: .25em; box-shadow: none; border: none;"
-                      />
-              
-                      <input class="form-control mr-sm-2" 
-                        type="email"
-                        value=""
-                        name="EMAIL"
-                        class="required email"
-                        id="email"
-                        placeholder="Email:"
-                        style=" width: 65%; float: left; background: none; padding: 1.75em 2em; margin: 0; border-radius: .25em; box-shadow: none; border: none;"
-                      />
+
+                <div class= "row">   
+                  <div class="col-sm-6">
+                      <form class="form-inline col-sm">
+                          <input class="form-control mr-sm-2" 
+                          type="text"
+                          value=""
+                          name="FNAME"
+                          class="required name"
+                          id="name"
+                          placeholder="Name:"
+                        />
+                  </div>
+                  <div class="col-sm-6">
+
+                          <input class="form-control" 
+                          type="email"
+                          value=""
+                          name="EMAIL"
+                          class="required email"
+                          id="email"
+                          placeholder="Email:"
+                        />
+                  </div>
+                </div>
+                 
                     
                     <button class="btn btn-outline-success my-2 my-sm-0" type="sign-up">Sign-up</button>
                   </form>
                 </div>
               </nav>
-        <div class="container">
+       
 
        
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid" style= "width: 100%">
                 <div class="container">
                   <h1 class="display-4">openPass</h1>
                   <p class="lead">EVENTS. ANY CITY. ANYTIME</p>
                 </div>
          </div>
 
-         <form id="show-form">
-                <label for="show-input">EVENTS!</label>
-                <input type="text" id="search-input"><br>
-                <input id="submit-button" type="submit" value="SUBMIT">
+         <div class="container">
 
-        </form>
-        </div>
+              <form id="show-form">
+                  <div class="row col-sm-6">
+                  <label for="show-input">SEARCH</label>
+                  <input type="text" id="search-input"><br>
+                  <input id="submit-button" type="submit" value="SUBMIT">
+                </div>
+  
+          </form>
+
+     
+       
+   
 
         <div class = "event-list">
             <div class = "row">
@@ -91,6 +104,9 @@
             </div>
                                                 
         </div>
+
+
+      </div>
 
 
 
