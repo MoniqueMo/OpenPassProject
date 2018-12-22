@@ -1,3 +1,47 @@
 h1 {color: red;
+    font-style: italic;
+    font-size: 200%; 
+}
+
+.jumbotron { background-image: url("../images/city-image.jpg");
+    align-content: center;
+    background-size: 100%;
+    background-position-x: 0x;
+    background-position-y: -215px;
+    font-size: xx-large;
 
 }
+
+
+
+
+
+
+
+
+.btn { border-color: red;
+    color: red;
+    margin-left: 35px;
+}
+
+.btn:hover{ background-color: rgb(104, 103, 103);
+    outline-color: red;
+
+}
+
+.btn:active{ background-color: rgb(104, 103, 103);
+    outline-color: red;
+
+}
+
+.lead{ color: white;
+
+}
+
+.card {margin-top: 20px;
+
+}
+
+
+    
+
