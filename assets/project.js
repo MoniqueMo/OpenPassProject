@@ -2,16 +2,20 @@ $(document).ready(function() {
   var category = "american";
   var latitude = "29.684885";
   var longitude = "-95.410875";
+  var cityLocation = "brooklyn";
 
   var key =
     "CCqam6P48aTcR7ZlcouEZvO9ibZrlVcnY73Fkx2eCoEZbyKweGuzQW2RNP5OxHR9Xhdpbi2CAYybGFxuPk1RGniw4fGpRrktdGE-MXJzWI5voJRoMH7L-KriU5sVXHYx";
   queryURL =
     "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?category=" +
     category +
-    "&latitude=" +
-    latitude +
-    "&longitude=" +
-    longitude;
+    // "&latitude=" +
+    // latitude +
+    // "&longitude=" +
+    // longitude;
+
+"&location=" +
+cityLocation;
 
   $.ajax({
     url: queryURL,
@@ -169,7 +173,8 @@ var genre = $(".search-input").val().trim();
       $("<td>").text(dataDate),
       $("<td>").text(time),
       $("<td>").text(priceRange),
-      $("<button>").text("Get Tix").addClass("clickable").attr("data-url",eventURL)
+      $("<button>").text("Get Tix").addClass("clickable").attr("data-url",eventURL),
+      $("<button>").text("Get attractions").addClass("yelpclick").attr("data-url","yelpinterface.html").attr("data-city", city),
     );
   
   
@@ -281,7 +286,8 @@ var genre = cataName;
       $("<td>").text(dataDate),
       $("<td>").text(time),
       $("<td>").text(priceRange),
-      $("<button>").text("Get Tix").addClass("clickable").attr("data-url",eventURL)
+      $("<button>").text("Get Tix").addClass("clickable").attr("data-url",eventURL),
+      $("<button>").text("Get attractions").addClass("yelpclick").attr("data-url","yelpinterface.html").attr("data-city", city)
     );
   
   
@@ -291,6 +297,51 @@ var genre = cataName;
   }// end of for loop
  }// end of getEvents Function
 });// end of search button click function 
+
+
+
+
+//function that redirects the event click to the ticket master application
+$("body").on("click", ".yelpclick", function() {
+  var url = $(this).attr("data-url");
+window.open(url,'_blank');
+});
+
+//on click attraction button - activates yelp api
+
+$("body").on("click",".yelpclick", function() {
+
+  var city= $(this).attr("data-city");
+$(".location").empty();
+  var h1Text = $("<h1>").text(city);
+  $(".location").append(h1Text);
+   console.log(h1Text);
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ////////////Google Image Search API\\\\\\\\\\\\\\
