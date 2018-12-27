@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)file:///C:/Users/sboon/OpenPassProject/dcfood.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Looking for Food</title>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./Looking for Food_files/bootstrap.min.css">
+    <script src="./Looking for Food_files/jquery.min.js.download"></script>
+    <script src="./Looking for Food_files/bootstrap.min.js.download"></script>
+    <script type="text/javascript" src="./Looking for Food_files/food.js.download"></script>
+    <link rel="stylesheet" type="text/css" href="./Looking for Food_files/foodstyle.css">
+
+<script>
+
+    var category = "Food";
+    var latitude = "38.89511"
+    var longitude = "-77.03637"
+
+    var key = "CCqam6P48aTcR7ZlcouEZvO9ibZrlVcnY73Fkx2eCoEZbyKweGuzQW2RNP5OxHR9Xhdpbi2CAYybGFxuPk1RGniw4fGpRrktdGE-MXJzWI5voJRoMH7L-KriU5sVXHYx";
+    queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?category=" +
+        category + "&latitude=" + latitude + "&longitude=" + longitude;
+
+    $.ajax({
+        url: queryURL,
+        headers: {
+            'Authorization': 'Bearer ' + key,
+        },
+        method: "GET"
+    })
+        .then(function (response) {
+            console.log(response)
+
+        });
+
+
+    //Display the content of search
+
+    var restaurants = ["Old Ebbitt Grill ", " Founding Farmer - Washington ", " Zaytinya ", " Rasika ",
+        " National Museum of African American History and Culture ", " Lincoln Memorial ", " Fogo de Chão Brazilian Steakhouse",
+        " Smithsonian National Museum of Natural History ", " Joe's Seafood, Prime Steak & Stone Crab ", " United States Holocaust Memorial Museum",
+        " Daikaya Ramen Shop", " &pizza", " Baked & Wired", " The Hamilton", " Matchbox - Chinatown", " Newseum",
+        " National Gallery of Art", " National Portrait Gallery", " Smithsonian American Art Museum Renwick Gallery",
+        "District Taco"
+    ]
+
+    //Phone number
+    var phoneNum = [" +12023474800", " +12028228783", "+12026380800", "+12026371222", "+18447503012", "+12024266841",
+        "+12023474668", "+12026331000", "+12024890140", "+12024880400", "+12025891600", "+12023475056", "+12023332500",
+        "+12027871000", "+12022894441", "+18886397386", "+12027374215", "+12026338300", "+12023571300", "+12023477359"
+    ]
+
+    //Address of restaurant
+    var address = [" 675 15th St NW, DC 20005 ", " 1924 Pennsylvania Ave NW, DC 20006", "701 9th St NW, DC 20001",
+        "633 D St NW, DC 20004", "1400 Constitution Ave NW, DC 20560", "Lincoln Memorial Cir NW, DC 20002",
+        "1101 Pennsylvania Ave NW, DC 20004", "1000 Constitution Ave NW, DC 20004", "750 15th St NW, DC 20005",
+        "100 Raoul Wallenberg Pl SW, DC 20024", "705 6th St NW, Fl 1, DC 20001", "1005 E St NW, DC 20004",
+        "1052 Thomas Jefferson St NW, DC 20007", "600 14th St NW, DC 20005", "713 H St NW, DC 20001",
+        "555 Pennsylvania Ave NW, DC 20001", "6th St & Constitution Ave NW, DC 20001", "8TH St And F St NW, DC 20001",
+        "800 G St NW, DC 20006", "1309 F St NW, DC 20004"
+    ]
+
+    $(document).ready(function () {
+        $("button").click(function () {
+            
+                
+                document.getElementById("demo").innerHTML = restaurants[0] + ",  Tel. " + phoneNum[0] + ",  " + address[0];
+                
+                document.getElementById("demo1").innerHTML = restaurants[1] + ",  Tel. " + phoneNum[1] + ",  " + address[1];
+                
+                document.getElementById("demo2").innerHTML = restaurants[2] + ",  Tel. " + phoneNum[2] + ",  " + address[2];
+                
+                document.getElementById("demo3").innerHTML = restaurants[3] + ",  Tel. " + phoneNum[3] + ",  " + address[3];
+                
+                document.getElementById("demo4").innerHTML = restaurants[4] + ",  Tel. " + phoneNum[4] + ",  " + address[4];
+                
+                document.getElementById("demo5").innerHTML = restaurants[5] + ",  Tel. " + phoneNum[5] + ",  " + address[5];
+                
+                document.getElementById("demo6").innerHTML = restaurants[6] + ",  Tel. " + phoneNum[6] + ",  " + address[6];
+                
+                document.getElementById("demo7").innerHTML = restaurants[7] + ",  Tel. " + phoneNum[6] + ",  " + address[7];
+                 
+                document.getElementById("demo8").innerHTML = restaurants[8] + ",  Tel. " + phoneNum[8] + ",  " + address[8];
+                
+                document.getElementById("demo9").innerHTML = restaurants[9] + ",  Tel. " + phoneNum[9] + ",  " + address[9];
+                
+                document.getElementById("demo10").innerHTML = restaurants[10] + ",  Tel. " + phoneNum[10] + ",  " + address[10];
+                
+                document.getElementById("demo11").innerHTML = restaurants[11] + ",  Tel. " + phoneNum[11] + ",  " + address[11];
+                
+                document.getElementById("demo12").innerHTML = restaurants[12] + ",  Tel. " + phoneNum[12] + ",  " + address[12];
+                
+                document.getElementById("demo13").innerHTML = restaurants[13] + ",  Tel. " + phoneNum[13] + ",  " + address[13];
+                
+                document.getElementById("demo14").innerHTML = restaurants[14] + ",  Tel. " + phoneNum[14] + ",  " + address[14];
+                
+                document.getElementById("demo15").innerHTML = restaurants[15] + ",  Tel. " + phoneNum[15] + ",  " + address[15];
+                
+                document.getElementById("demo16").innerHTML = restaurants[16] + ",  Tel. " + phoneNum[16] + ",  " + address[16];
+                
+                document.getElementById("demo17").innerHTML = restaurants[17] + ",  Tel. " + phoneNum[17] + ",  " + address[17];
+                
+                document.getElementById("demo18").innerHTML = restaurants[18] + ",  Tel. " + phoneNum[19] + ",  " + address[18];
+                
+                document.getElementById("demo19").innerHTML = restaurants[19] + ",  Tel. " + phoneNum[19] + ",  " + address[19];
+   
+
+        });
+    });
+
+
+
+</script></head>
+
+
+<body>
+
+    <div id="div1">
+        <h2>Food in Washington DC Area</h2>
+    </div>
+
+    <button>Try it</button>
+    <img id="demo20" src="./Looking for Food_files/dcpicture.PNG" width="300" height="233">
+
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+    <p id="demo7"></p>
+    <p id="demo8"></p>
+    <p id="demo9"></p>
+    <p id="demo10"></p>
+    <p id="demo11"></p>
+    <p id="demo12"></p>
+    <p id="demo13"></p>
+    <p id="demo14"></p>
+    <p id="demo15"></p>
+    <p id="demo16"></p>
+    <p id="demo17"></p>
+    <p id="demo18"></p>
+    <p id="demo19"></p>
+    <p id="demo20"></p>
+
+
+    <div class="container">
+        <h2>Food and Place Images</h2>
+        <p></p>
+
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Places For Food</th>
+                        <th>Sample</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Old Ebbitt Grill</b><img src="./Looking for Food_files/star.PNG"></td>
+                        <td><img src="./Looking for Food_files/o.jpg" width="300" height="233"></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><b>Founding Farmers - Washington</b><img src="./Looking for Food_files/star2.PNG"></td>
+                        <td><img src="./Looking for Food_files/o(1).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><b>Zaytinya</b><img src="./Looking for Food_files/star3.PNG"></td>
+                        <td><img src="./Looking for Food_files/o(2).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td><b>Rasika</b><img src="./Looking for Food_files/star4.PNG"></td>
+                        <td><img src="./Looking for Food_files/o(3).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>National Museum of African American History and Culture</td>
+                        <td><img src="./Looking for Food_files/o(4).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>Lincoln Memorial</td>
+                        <td><img src="./Looking for Food_files/o(5).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td><b>Fogo de Chão Brazilian Steakhouse</b><img src="./Looking for Food_files/star4.PNG"></td>
+                        <td><img src="./Looking for Food_files/o(6).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>Smithsonian National Museum of Natural History</td>
+                        <td><img src="./Looking for Food_files/o(7).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>Joe's Seafood, Prime Steak &amp; Stone Crab<img src="./Looking for Food_files/star5.PNG"></td>
+                        <td><img src="./Looking for Food_files/o(8).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>United States Holocaust Memorial Museum</td>
+                        <td><img src="./Looking for Food_files/o(9).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    
+                    <tr>
+                        <td>Daikaya Ramen Shop <img src="./Looking for Food_files/star6.PNG"></td>
+                        <td><img src="./Looking for Food_files/o(10).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>&amp;pizza<img src="./Looking for Food_files/star10.PNG"></td>
+                        <td><img src="./Looking for Food_files/o(11).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>Baked &amp; Wired<img src="./Looking for Food_files/bake.PNG"></td>
+                        <td><img src="./Looking for Food_files/o(12).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>The Hamilton<img src="./Looking for Food_files/star5.PNG"></td>
+                        <td><img src="./Looking for Food_files/o(13).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>Matchbox - Chinatown<img src="./Looking for Food_files/star8.PNG"></td>
+                        <td><img src="./Looking for Food_files/o(14).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>Newseum</td>
+                        <td><img src="./Looking for Food_files/o(15).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>National Gallery of Art</td>
+                        <td><img src="./Looking for Food_files/o(16).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>National Portrait Gallery</td>
+                        <td><img src="./Looking for Food_files/o(17).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>Smithsonian American Art Museum Renwick Gallery<img src="./Looking for Food_files/african.PNG" width="200px" height="200px"></td>
+                        <td><img src="./Looking for Food_files/o(18).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+                    <tr>
+                        <td>District Taco<img src="./Looking for Food_files/star20.PNG"></td>
+                        <td><img src="./Looking for Food_files/o(19).jpg" width="300" height="233"></td>
+                        
+                    </tr>
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div> 
+
+
+
+
+</body></html>
