@@ -1,40 +1,4 @@
-$(document).ready(function() {
-  var category = "american";
-  var latitude = "29.684885";
-  var longitude = "-95.410875";
-  var cityLocation = "brooklyn";
 
-  var key =
-    "CCqam6P48aTcR7ZlcouEZvO9ibZrlVcnY73Fkx2eCoEZbyKweGuzQW2RNP5OxHR9Xhdpbi2CAYybGFxuPk1RGniw4fGpRrktdGE-MXJzWI5voJRoMH7L-KriU5sVXHYx";
-  queryURL =
-    "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?category=" +
-    category +
-    // "&latitude=" +
-    // latitude +
-    // "&longitude=" +
-    // longitude;
-
-"&location=" +
-cityLocation;
-
-  $.ajax({
-    url: queryURL,
-    headers: {
-      Authorization: "Bearer " + key
-    },
-    method: "GET"
-  }).then(function(response) {
-    console.log(response);
-  });
-  if ($("#newUser").length > 0) {
-    userScript("foruser");
-  }
-});
-$(document).ready(function() {
-  if ($("#newUser").length > 0) {
-    userScript("foruser");
-  }
-});
 
 //firebase
 function userScript(value) {
@@ -151,15 +115,15 @@ var genre = $(".search-input").val().trim();
     }
     
   // ---Comparrision on state Code for availability and accurate data 
-    if (data._embedded.events[i]._embedded.venues[0].state.stateCode != null) {
-      state = data._embedded.events[i]._embedded.venues[0].state.stateCode;
-    } 
-    else {
-      state = " ";
-    }
+    // if (data._embedded.events[i]._embedded.venues[0].state.stateCode != null) {
+    //   state = data._embedded.events[i]._embedded.venues[0].state.stateCode;
+    // } 
+    // else {
+    //   state = " ";
+    // }
 
     // address full 
-    var addressFull = address +" "+city+", "+state+ " "+zip;
+    var addressFull = address +" "+city+", "/*+state*/+ " "+zip;
     //console.log(addressFull);
 
 
@@ -264,15 +228,15 @@ var genre = cataName;
     }
     
   // ---Comparrision on state Code for availability and accurate data 
-    if (data._embedded.events[i]._embedded.venues[0].state.stateCode != null) {
-      state = data._embedded.events[i]._embedded.venues[0].state.stateCode;
-    } 
-    else {
-      state = " ";
-    }
+    // if (data._embedded.events[i]._embedded.venues[0].state.stateCode != null) {
+    //   state = data._embedded.events[i]._embedded.venues[0].state.stateCode;
+    // } 
+    // else {
+    //   state = " ";
+    // }
 
     // address full 
-    var addressFull = address +" "+city+", "+state+ " "+zip;
+    var addressFull = address +" "+city+", "/*+state*/+ " "+zip;
     //console.log(addressFull);
 
 
@@ -287,7 +251,7 @@ var genre = cataName;
       $("<td>").text(time),
       $("<td>").text(priceRange),
       $("<button>").text("Get Tix").addClass("clickable").attr("data-url",eventURL),
-      $("<button>").text("Get attractions").addClass("yelpclick").attr("data-url","yelpinterface.html").attr("data-city", city)
+      $("<button>").text("Get attractions").addClass("yelpclick").attr("data-url","yelpinterface.html").attr("data-city", city).attr("data-venue",venue)
     );
   
   
@@ -302,20 +266,116 @@ var genre = cataName;
 
 
 //function that redirects the event click to the ticket master application
-$("body").on("click", ".yelpclick", function() {
-  var url = $(this).attr("data-url");
-window.open(url,'_blank');
-});
+// $("body").on("click", ".yelpclick", function() {
+//   var url = $(this).attr("data-url");
+// window.open(url,'_blank');
+// });
 
 //on click attraction button - activates yelp api
 
-$("body").on("click",".yelpclick", function() {
+$("body").on("click",".yelpclick", function() { 
 
   var city= $(this).attr("data-city");
-$(".location").empty();
-  var h1Text = $("<h1>").text(city);
-  $(".location").append(h1Text);
-   console.log(h1Text);
+  var venue= $(this).attr("data-venue");
+  var cityName = $("<h5>").text(city);
+  var venueName = $("<h5>").text(venue);
+ 
+
+    var category = "american";
+    var key =
+      "CCqam6P48aTcR7ZlcouEZvO9ibZrlVcnY73Fkx2eCoEZbyKweGuzQW2RNP5OxHR9Xhdpbi2CAYybGFxuPk1RGniw4fGpRrktdGE-MXJzWI5voJRoMH7L-KriU5sVXHYx";
+    queryURL =
+      "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?category=" +
+      category +
+      "&location=" +
+      city +
+      "&size="+
+      30;
+  
+      console.log(city);
+    $.ajax({
+      url: queryURL,
+      headers: {
+        Authorization: "Bearer " + key
+      },
+      method: "GET"
+    }).then(function(response) {
+      // console.log(response);
+      getRestaurants(response);
+    });
+
+    function getRestaurants(response){
+      console.log(response);
+  
+      var results = response.businesses;
+
+       $("tbody").empty();
+      $(".eventPop").append(cityName, venueName);
+  
+      for (var i = 1; i < results.length; i++){
+      //location information
+     var businessName = results[i].name;
+     console.log(businessName);
+      var businessAddress = results[i].location.address1;
+      console.log(businessAddress);
+     var businessPhone = results[i].phone;
+     var businessPrice = results[i].price;
+     var businessRating = results[i].rating;
+     var businessImage = results[i].image_url;
+  
+
+
+    
+ 
+
+  // var tr = $("<tr>");
+  // var newRow = tr.append(
+  //   $("<td>").text(businessName),
+  //   $("<td>").text(businessAddress),
+  //   $("<td>").text(businessPhone),
+  //   $("<td>").text(businessPrice),
+  //   $("<td>").text(businessRating),
+  //   $("<td>").text(businessImage),
+  // );
+
+  //   // Append the new row to the table
+  //   $("#event-table > tbody").append(newRow);
+
+  var newDivrow = $("<div></div>").addClass("row").addClass("mainrowDiv");
+  var newDiv1 = $("<div></div>").addClass("restaurantOptions").addClass("col-md-5");
+  var newDiv2 = $("<div></div>").addClass("restaurantImage").addClass("col-md-5");
+  // var img = $("<img />",{
+  //    src: "businessImage",
+ 
+
+  newDiv1.append(
+    // $("<img />",{src: "businessImage",
+    $("<p></p>").text(businessName),
+    $("<p></p>").text(businessAddress),
+    $("<p></p>").text(businessPhone),
+    $("<p></p>").text(businessPrice),
+    $("<p></p>").text(businessRating),
+    
+  );
+
+  newDiv2.append(
+    $("<img></img>").attr("src",businessImage).addClass("restaurantImage"),
+
+  );
+
+  // $('.restaurantOptions').prepend(img);
+
+  // $('.restaurantOptions').prepend('<img  src="businessImage" />');
+
+ $(newDivrow).append(newDiv1);
+  $(newDivrow).append(newDiv2);
+  $(".eventPop").append(newDivrow);
+
+}
+
+}
+
+
 
 });
 

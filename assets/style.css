@@ -146,3 +146,27 @@ body {
   }
 
 /*-----------------------------Dropdown menue CSS End----------------------------------*/
+
+
+/*resturant options*/
+
+.mainrowDiv{
+    border-bottom: solid 2px rgb(75, 75, 75);
+    padding:15px 15px 15px 15px;
+
+
+}
+
+.restaurantOptions{ width: 100%;
+     float:left;
+     margin:10px;
+    
+    
+
+}
+
+.restaurantImage { width: 100%;
+    height: auto;
+    float: right;
+
+}
