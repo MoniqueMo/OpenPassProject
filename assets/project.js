@@ -42,6 +42,7 @@ $(document).ready(function(){
   //button to call search input
   $(".bttn").on("click", function() {
 
+  $("thead").show();
   $("tbody").empty();
 
   var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?";
@@ -75,7 +76,6 @@ $(document).ready(function(){
 
       for (var i = 1; i < results.length; i++){
       //location information
-      var eventList = [];
       var eventName = data._embedded.events[i].name;
       var dataDate = moment(data._embedded.events[i].dates.start.localDate, "YYYY-MM-DD").format("MMM-D-YYYY");
       var venue = data._embedded.events[i]._embedded.venues[0].name;
@@ -87,16 +87,6 @@ $(document).ready(function(){
       //var longitude = data._embedded.events[i]._embedded.venues[0].location.longitude;
       var time = moment(data._embedded.events[i].dates.start.localTime, "HH:mm:ss").format("hh:mm A");
       var eventURL = data._embedded.events[i].url;
-      
-      /*console.log(eventName);
-      console.log(dataDate);
-      console.log(venue);
-      console.log(city);
-      console.log(address);
-      console.log(eventURL);
-      console.log("Start Time is at: "+time);
-      console.log(latitude);
-      console.log(longitude);*/
 
       // ---Comparrision on state Code for availability and accurate data 
       if (data._embedded.events[i]._embedded.venues[0].address.line1 != null) {
@@ -165,7 +155,7 @@ $(document).ready(function(){
   $(".catagories").on("click", function() {
 
     var cataName = $(this).attr("data-genre");
-
+    $("thead").show();
     $("tbody").empty();
 
   var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?";
@@ -198,7 +188,6 @@ $(document).ready(function(){
 
       for (var i = 1; i < results.length; i++){
       //location information
-      var eventList = [];
       var eventName = data._embedded.events[i].name;
       var dataDate = moment(data._embedded.events[i].dates.start.localDate, "YYYY-MM-DD").format("MMM-D-YYYY");
       var venue = data._embedded.events[i]._embedded.venues[0].name;
@@ -276,10 +265,12 @@ $(document).ready(function(){
 
   $("body").on("click",".yelpclick", function() { 
 
+    $("thead").hide();
+
     var city= $(this).attr("data-city");
     var venue= $(this).attr("data-venue");
-    var cityName = $("<h5>").text(city);
-    var venueName = $("<h5>").text(venue);
+    var cityName = $("<h5>").text("City of - "+city).addClass("cityClass").addClass("yelpClass");
+    var venueName = $("<h5>").text("Attractions around - "+venue).addClass("venueClass").addClass("yelpClass");
   
 
       var category = "american";
@@ -291,7 +282,7 @@ $(document).ready(function(){
         "&location=" +
         city +
         "&size="+
-        30;
+        40;
     
         console.log(city);
       $.ajax({
@@ -311,7 +302,7 @@ $(document).ready(function(){
         var results = response.businesses;
 
         $("tbody").empty();
-        $(".eventPop").append(cityName, venueName);
+        $("tbody").append(cityName, venueName);
     
         for (var i = 1; i < results.length; i++){
         //location information
@@ -323,21 +314,6 @@ $(document).ready(function(){
       var businessPrice = results[i].price;
       var businessRating = results[i].rating;
       var businessImage = results[i].image_url;
-    
-
-
-      
-  
-
-    // var tr = $("<tr>");
-    // var newRow = tr.append(
-    //   $("<td>").text(businessName),
-    //   $("<td>").text(businessAddress),
-    //   $("<td>").text(businessPhone),
-    //   $("<td>").text(businessPrice),
-    //   $("<td>").text(businessRating),
-    //   $("<td>").text(businessImage),
-    // );
 
     //   // Append the new row to the table
     //   $("#event-table > tbody").append(newRow);
@@ -351,12 +327,11 @@ $(document).ready(function(){
 
     newDiv1.append(
       // $("<img />",{src: "businessImage",
-      $("<p></p>").text(businessName),
-      $("<p></p>").text(businessAddress),
-      $("<p></p>").text(businessPhone),
-      $("<p></p>").text(businessPrice),
-      $("<p></p>").text(businessRating),
-      
+      $("<p></p>").text(businessName).addClass("businessName"),
+      $("<p></p>").text("Address: "+businessAddress).addClass("yelpPopulate"),
+      $("<p></p>").text("Phone number:"+businessPhone).addClass("yelpPopulate"),
+      $("<p></p>").text("Price: "+businessPrice).addClass("yelpPopulate"),
+      $("<p></p>").text("Stars: "+businessRating).addClass("yelpPopulate"),
     );
 
     newDiv2.append(
@@ -364,23 +339,22 @@ $(document).ready(function(){
 
     );
 
-    // $('.restaurantOptions').prepend(img);
-
-    // $('.restaurantOptions').prepend('<img  src="businessImage" />');
 
   $(newDivrow).append(newDiv1);
     $(newDivrow).append(newDiv2);
-    $(".eventPop").append(newDivrow);
+    $("tbody").append(newDivrow);
 
   }
 
   }
-
-
 
   });
 
-
+  $('.catagoriesCSS').on("click", function() {
+    var url = $(this).attr("data-url");
+    var windowName = "popUp";
+  window.open(url,windowName);
+  });
 
 
 
@@ -410,7 +384,6 @@ $(document).ready(function(){
     event.preventDefault();
     var cataName = $(this).attr("data-genre");
 
-    $(".container3").empty();
 
     window.onload = function start() {
     // Initializes the client with the API key and the Translate API.
