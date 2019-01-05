@@ -12,7 +12,7 @@ h1 {color: red;
 }
 
 .container2 {
-    background-color:rgba(15, 15, 15, 0.6);
+    background-color:rgba(15, 15, 15, 0.6);   
     padding: 15px;
 }
 
@@ -38,11 +38,22 @@ h1 {color: red;
 
 .container3 {
     width: 80%;
-    height: auto;
-    padding: 20px;
+    height: 150px;
+    padding: 20px 20px 30px 20px;
     background-color: grey; 
     overflow: hidden;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+}
+
+@media only screen and (max-width: 700px){
+    .container3 {
+        width: 80%;
+        height: auto;
+        padding: 20px 20px 30px 20px;
+        background-color: grey; 
+        overflow: hidden;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+    }
 }
 
 .search {
@@ -61,19 +72,22 @@ body {
 
 .catagoriesCSS {
     float: left;
-    width: 115px;
-    height: 100px;
-    background-color:rgba(15, 15, 15, 1);
+    width: 95px;
+    height: 90px;
+    /* background-color:rgba(15, 15, 15, 1); */
     margin: 8px;
     color: aliceblue;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
     border-radius: 3px;
 }
+
 .catagoriesCSS:hover {
     float: left;
-    width: 115px;
+    width: 105px;
     height: 100px;
-    background-color:rgba(15, 15, 15, 0.6);
+    top:10px;
+    left:0px;
+    /* background-color:rgba(15, 15, 15, 0.6); */
     margin: 8px;
     color: white;
     box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.6)
@@ -151,9 +165,9 @@ body {
 /*resturant options*/
 
 .mainrowDiv{
-    border-bottom: solid 2px rgb(75, 75, 75);
-    padding:15px 15px 15px 15px;
-
+    border-bottom: solid 2px rgb(161, 160, 160);
+    padding:15px 15px 15px 20px;
+    margin-right: 10px;
 
 }
 
@@ -169,4 +183,28 @@ body {
     height: auto;
     float: right;
 
+}
+
+.businessName {
+    font-size: 40px;
+    color: rgb(255, 51, 0);
+    font-family: 'Kanit', sans-serif;
+}
+
+.yelpClass {
+    margin: 0px 5px;
+    background-color: rgb(87, 99, 112);
+    color: rgb(236, 234, 234);
+    font-size: 40px;
+    padding-left: 15px;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.cityClass {
+    padding-top: 15px;
+}
+
+.venueClass {
+    padding-bottom: 15px;
 }
