@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///C:/Users/sboon/OpenPassProject/Project.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- Bootstrap & CSS Links -->
+    <link rel="stylesheet" href="./Open Pass_files/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Open Pass_files/style.css">
+    <!-- Moment.js script -->
+    <script src="./Open Pass_files/moment.min.js.download"></script>
+    <!-- jquery script-->
+    <script src="./Open Pass_files/jquery.min.js.download"></script>
+    <!-- bootstrap.js script-->
+    <script src="./Open Pass_files/bootstrap.min.js.download" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- firebase script-->
+    <script src="./Open Pass_files/firebase.js.download"></script>
+    
+    <title>Open Pass</title>
+</head>
+<body>
+
+  <!-- Beginning of nav bar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="file:///C:/Users/sboon/OpenPassProject/Project.html#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="file:///C:/Users/sboon/OpenPassProject/Project.html#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="file:///C:/Users/sboon/OpenPassProject/Project.html#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="file:///C:/Users/sboon/OpenPassProject/Project.html#">Action</a>
+                        <a class="dropdown-item" href="file:///C:/Users/sboon/OpenPassProject/Project.html#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="file:///C:/Users/sboon/OpenPassProject/Project.html#">Something else here</a>
+                      </div>
+                    </li>
+                  </ul>
+
+        <!-- Beginning of sign in code-->
+                <div class="row">   
+                  <div class="col-sm-6">
+                      <form class="form-inline col-sm" id="newUser">
+                          <input class="form-control mr-sm-2" type="text" value="" name="FNAME" id="name" placeholder="Name:">
+                  </form></div>
+                  <div class="col-sm-6">
+                          <input class="form-control" type="email" value="" name="EMAIL" id="email" placeholder="Email:">
+                  </div>
+                </div>
+                    <button class="btn btnSignIn btn-outline-success my-2 my-sm-0" type="sign-up">Sign-up</button>
+                  
+                </div>
+              </nav>
+       
+
+       <!-- Beginning of Jombotron html-->
+        <div class="jumbotron jumbotron-fluid" style="width: 100%">
+                <div class="container container2">
+                  <h1 class="display-4">openPass</h1>
+                  <p class="lead">EVENTS. ANY CITY. ANYTIME</p>
+                </div>
+         </div>
+
+      <!-- searchbar for events and performers-->
+         <div class="search">
+          <div class="row">
+              <div class="input-group mb-3 ">
+                  <input type="text" id="searchAnswer" class="form-control search-input" data-catagory="n" placeholder="Search Event, Performer or Location" aria-label="Performer" aria-describedby="button-addon2">
+                      <div class="input-group-append">
+                          <button class="btnSearch bttn btn-outline-secondary" type="button" id="button-addon1" data-catagory="n">Search</button>
+                      </div>
+              </div>
+          </div>
+      </div>
+  
+<!-- /////div section for trending catagories\\\\\-->
+    
+    <!-- dropdown buttons for various genres and catagories-->
+    <div class="container">
+      <div class="row">
+
+        <!-- adding new dropdowns -->
+      <div class="containerH ">
+        <div class="dropdown">
+          <button class="dropbtn">Broadway Plays</button>
+          <div class="dropdown-content">
+            <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="Hamilton">Hamilton</a>
+            <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="Aladdin">Aladdin</a>
+            <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="The Lion King, New York"> The Lion King</a>
+            <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="WICKED, New York">Wicked</a>
+            <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="Phantom of the Opera, New York">The Phantom of the Opera</a>
+            <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="King Kong, New York">King Kong</a>
+            <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="Once On This Island">Once On This Island</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="containerH ">
+          <div class="dropdown">
+            <button class="dropbtn">Music Genre</button>
+            <div class="dropdown-content">
+              <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="pop">Pop</a>
+              <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="Hip-Hop">Hip-Hop</a>
+              <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="Rock">Rock-n-roll</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="containerH ">
+            <div class="dropdown">
+              <button class="dropbtn">Sports</button>
+              <div class="dropdown-content">
+                <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="NFL">Football (NFL)</a>
+                <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="Soccer">Soccer (MLS)</a>
+                <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="NBA">Basketball (NBA)</a>
+                <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="NHL">Hockey (NHL)</a>
+                <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="MBL">BaseBall (MBL)</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="containerH ">
+              <div class="dropdown">
+                <button class="dropbtn">Popular Artists</button>
+                <div class="dropdown-content">
+                  <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="J-cole">J-cole</a>
+                  <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="Ariana">Ariana Grande</a>
+                  <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="Drake">Drake</a>
+                  <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="Taylor Swift">Taylor Swift</a>
+                  <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="Bruno Mars">Bruno Mars</a>
+                  <a href="file:///C:/Users/sboon/OpenPassProject/Project.html#" class="catagories" data-genre="Meek Mills">Meek Mills</a>
+                </div>
+              </div>
+            </div>
+
+
+      </div>
+    </div>  
+
+  <!-- section where catagories of trending topics populate-->
+    <div class="container container3">
+          <button class="catagories catagoriesCSS" data-genre="NFL"><div><h4>NFL</h4></div></button>
+          <button class="catagories catagoriesCSS" data-genre="New York Broadway"><div> <h5>New York Broadway</h5></div></button>
+          <button class="catagories catagoriesCSS"><div></div></button>
+          <button class="catagories catagoriesCSS"><div></div></button>
+          <button class="catagories catagoriesCSS"><div></div></button>
+          <button class="catagories catagoriesCSS"><div></div></button>
+          <button class="catagories catagoriesCSS"><div></div></button>
+          <button class="catagories catagoriesCSS"><div></div></button>
+      </div>
+  
+<!-- ///// Trending catagories END \\\\\-->
+
+
+    <!-- Where events will populate to the page-->
+      <div class="eventPop">
+        <div class="row">
+            <div class="col-md-12">
+    
+                <div class="card mb-4">
+                <div class="card-header">Events</div>
+                <div class="card-body">
+                    <table class="table table-sm table-hover" id="event-table">  <!-- id= employee-table-->
+                    <thead>
+                        <tr>
+                            <th scope="col">Event/Tour</th>
+                            <th scope="col">Venue</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">#</th>
+                        </tr>
+                    </thead>
+                    <!-- events will append to the page here-->
+                    <tbody>
+    
+                    </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+            </div>
+        
+
+    </div>
+      
+      
+         <!-- commenting original code to implement code that will take TicketMaster API-->
+         <!-- <div class="container">
+
+              <form id="show-form">
+                  <div class="row col-sm-6">
+                  <label for="show-input">SEARCH</label>
+                  <input type="text" id="search-input"><br>
+                  <input id="submit-button" type="submit" value="SUBMIT">
+                </div>
+  
+          </form>
+
+        <div class = "event-list">
+            <div class = "row">
+                    <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="..." alt="Card image cap">
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                          </div>
+            </div>
+                                                
+        </div>
+
+
+      </div>-->
+         
+
+
+
+      <!--Google image search-->
+      <script src="./Open Pass_files/api.js.download"></script>
+      <!-- JavaScript script -->
+      <script src="./Open Pass_files/project.js.download"></script>
+    
+
+
+</body></html>
